@@ -1,73 +1,97 @@
-# React + TypeScript + Vite
+# Project 4 — Budget App 💰
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web para la gestión de presupuestos servicios web. Permite seleccionar categorías y visualizar los presupuestos inmediatamente. Guarda y muestra los presupuestos realizados.
 
-Currently, two official plugins are available:
+Este proyecto forma parte del curso de especialización en desarrollo frontend y está desarrollado con **React + TypeScript + Vite**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- TypeScript
+- Vite
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Instalación
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Clonar el repositorio
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone <https://github.com/CeballosGaston/Proyecto-4-Bugdet.git>
+cd project4-budget
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Instalar dependencias
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+---
+
+## ▶️ Ejecución en desarrollo
+
+```bash
+npm run dev
+```
+
+La aplicación estará disponible en:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+src/
+│
+├── components/     # Componentes reutilizables
+├── pages/          # Vistas principales
+├── services/       # Lógica de acceso a datos / API
+├── hooks/          # Custom hooks
+├── types/          # Tipos globales
+└── utils/          # Helpers
+```
+
+---
+
+## 🤝 Metodología de trabajo
+
+### 🌿 Ramas
+
+- `main` → versión estable
+- `develop` → integración
+- `feature/*` → nuevas funcionalidades
+- `fix/*` → corrección de bugs
+
+Ejemplo:
+
+```
+feature/project-structure
+feature/services-data
+```
+
+---
+
+### 🔀 Pull Requests
+
+Antes de abrir una PR:
+
+- ✔ Código funcionando
+- ✔ Probado manualmente
+- ✔ README actualizado si aplica
+
+## 👥 Desarrolador
+
+- Gastón Ceballos
+
+---
+
+## 📄 Licencia
+
+Proyecto educativo.
