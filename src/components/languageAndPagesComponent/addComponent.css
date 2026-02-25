@@ -1,0 +1,46 @@
+.add-component {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 0.5rem 0.7rem;
+}
+
+.add-component label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.add-component-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.add-component button {
+  background: #020617;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-component button:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+.add-component input {
+  width: 40px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: #e2e8f0;
+  font-weight: bold;
+}

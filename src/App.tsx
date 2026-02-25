@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ServiceBudget } from "./components/CardComponent/CardComponent";
 
+
+
 function App() {
   const [seoSelected, setSeoSelected] = useState(false);
   const [adsSelected, setAdsSelected] = useState(false);

@@ -1,4 +1,5 @@
 import "./cardComponent.css";
+import { Add } from "../languageAndPagesComponent/addComponent";
 
 type Props = {
   name: string;
@@ -8,7 +9,13 @@ type Props = {
   onToggle: () => void;
 };
 
-export function ServiceBudget({ name, description, basePrice, selected, onToggle }: Props) {
+export function ServiceBudget({
+  name,
+  description,
+  basePrice,
+  selected,
+  onToggle,
+}: Props) {
   return (
     <article className="service-card">
       <label>
@@ -18,6 +25,13 @@ export function ServiceBudget({ name, description, basePrice, selected, onToggle
       <h3>{name}</h3>
       <p>{description}</p>
       <p>{basePrice} €</p>
+
+      {name === "Web" && selected && (
+        <div>
+          <Add label=" Number of pages" />
+          <Add label="Number of languages" />
+        </div>
+      )}
     </article>
   );
 }
