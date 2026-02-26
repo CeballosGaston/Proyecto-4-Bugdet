@@ -10,12 +10,7 @@ type Props = {
 };
 
 export function ServiceBudget({
-  name,
-  description,
-  basePrice,
-  selected,
-  onToggle,
-}: Props) {
+  name, description, basePrice, selected, onToggle}: Props) {
   return (
     <article className="service-card">
       <label>

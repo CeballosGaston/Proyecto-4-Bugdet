@@ -4,6 +4,7 @@ export interface ServiceConfig {
   id: ServiceType;
   name: string;
   basePrice: number;
+  description: string
 }
 
 
