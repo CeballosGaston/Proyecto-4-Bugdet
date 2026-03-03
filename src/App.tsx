@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { ServiceBudget } from "./components/CardComponent/CardComponent";
-import { SERVICES, WEBCONFIG } from "./config/services";
+import { SERVICES } from "./config/services";
 import { BudgetGenerator } from "./components/budgetGeneratorComponent/budgetGeneratorComponent";
-import { ServiceType } from "./types/typesBudget";
+import type { ServiceType } from "./types/typesBudget";
 
 function App() {
   const [seoSelected, setSeoSelected] = useState(false);
   const [adsSelected, setAdsSelected] = useState(false);
   const [webSelected, setWebSelected] = useState(false);
+
+  const [pages, setPages] = useState(0);
+  const [languages, setLanguages] = useState(0);
+
 
 const selectedServices: ServiceType[] = [];
 
@@ -18,7 +22,7 @@ if(webSelected) selectedServices.push("web");
 
   return (
     <div>
-      <h1>Lovecraft Budgets</h1>
+      <h1>Budgets</h1>
 
       <div className="cards-container">
         <ServiceBudget
@@ -42,16 +46,20 @@ if(webSelected) selectedServices.push("web");
           basePrice={SERVICES[2].basePrice}
           selected={webSelected}
           onToggle={() => setWebSelected(!webSelected)}
+          pages={pages}
+          setPages={setPages}
+          languages={languages}
+          setLanguages={setLanguages}
         />
       </div>
-
-      <BudgetGenerator
+    <BudgetGenerator
       selectedServices={selectedServices}
-      webConfig={WEBCONFIG}
-      
-      />
-    
+      webConfig={{ pages,  languages}}
+    />
     </div>
+
+
+
   );
 }
 
