@@ -36,11 +36,11 @@
   color: #38bdf8;
 }
 
-.add-component input {
+
+.add-component .count {
   width: 40px;
   text-align: center;
-  background: transparent;
-  border: none;
   color: #e2e8f0;
   font-weight: bold;
+  display: inline-block;
 }

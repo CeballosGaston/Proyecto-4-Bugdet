@@ -1,26 +1,20 @@
-import { useState } from "react";
-import "./addComponent.css"
+
+import "./addComponent.css";
 
 type Props = {
   label: string;
+  value: number;
+  onIncrease: () => void;
+  onDecrease: () => void;
 };
 
-export const Add = ({ label }: Props) => {
-  const [count, setCount] = useState(0);
-
-  const increase = () => {
-    setCount(count + 1);
-  };
-  const decrease = () => {
-    setCount(count - 1);
-  };
-
+export const Add = ({ label, value, onIncrease, onDecrease }: Props) => {
   return (
     <div className="add-component">
       <label>{label}</label>
-      <button onClick={decrease}>-</button>
-      <input type="number" value={count} />
-      <button onClick={increase}>+</button>
+      <button onClick={onDecrease}>-</button>
+      <span className="count">{value}</span>
+      <button onClick={onIncrease}>+</button>
     </div>
   );
 };

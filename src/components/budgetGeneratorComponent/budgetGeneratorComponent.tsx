@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { calculateBudget } from "../../services/budgetCalculator";
 import type { WebConfig, ServiceType } from "../../types/typesBudget";
+import "./budgetGeneratorComponent.css";
 
 interface BudgetGeneratorProps {
   selectedServices: ServiceType[];
@@ -26,7 +27,7 @@ export const BudgetGenerator = ({
   };
 
   return (
-    <div>
+    <div className="budget-generator">
       <input
         type="text"
         value={name}
@@ -37,15 +38,20 @@ export const BudgetGenerator = ({
         type="text"
         value={email}
         onChange={changeEmail}
-        placeholder="name"
+        placeholder="email"
       />
       <input
         type="number"
         value={phone}
         onChange={changePhone}
-        placeholder="name"
+        placeholder="phone"
       />
-      <button onClick={() => calculateBudget(selectedServices, webConfig)}>
+      <button
+        onClick={() => {
+          const total = calculateBudget(selectedServices, webConfig);
+          console.log(total);
+        }}
+      >
         Create Budget
       </button>
     </div>
