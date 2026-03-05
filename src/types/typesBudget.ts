@@ -21,5 +21,5 @@ clientPhone: string;
 service:ServiceType[];
 webConfig? : WebConfig;
 total: number;
-createdAt: Date;
+createdAt: string;
 }

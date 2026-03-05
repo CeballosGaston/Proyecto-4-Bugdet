@@ -9,12 +9,12 @@
   margin-right: auto;
 }
 
-.budget-generator h2 {
+/* .budget-generator h2 {
   text-align: center;
   margin-bottom: 1.5rem;
   color: #ffffff;
   font-weight: 600;
-}
+} */
 
 .budget-generator input {
   width: 100%;
@@ -54,4 +54,12 @@
 
 .budget-generator button:active {
   transform: translateY(0);
+}
+
+.budget-generator-text {
+  color: #f87171;         
+  font-size: 0.9rem;      
+  line-height: 1.4;      
+  margin-top: 0.5rem;     
+  white-space: pre-line;   
 }
