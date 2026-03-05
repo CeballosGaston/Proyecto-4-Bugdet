@@ -3,6 +3,7 @@ import { ServiceBudget } from "./components/CardComponent/CardComponent";
 import { SERVICES } from "./config/services";
 import { BudgetGenerator } from "./components/budgetGeneratorComponent/budgetGeneratorComponent";
 import type { ServiceType } from "./types/typesBudget";
+import { HistoryGenerator } from "./components/budgetHistory/budgetHistoryComponent";
 
 function App() {
   const [seoSelected, setSeoSelected] = useState(false);
@@ -56,6 +57,12 @@ if(webSelected) selectedServices.push("web");
       selectedServices={selectedServices}
       webConfig={{ pages,  languages}}
     />
+
+<HistoryGenerator/>
+
+
+
+
     </div>
 
 
