@@ -77,3 +77,14 @@
   margin: 0.3rem 0;       
   font-size: 0.95rem;
 }
+
+.history-generator .no-budgets {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background: #020617;
+  border: 1px dashed #334155;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  text-align: center;
+}

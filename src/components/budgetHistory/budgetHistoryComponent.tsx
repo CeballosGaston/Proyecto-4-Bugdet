@@ -6,6 +6,7 @@ export const HistoryGenerator = () => {
   const [name, setName] = useState("");
   const [foundBudgets, setFoundBudgets] = useState<Budget[]>([]);
   const storedBudgets = localStorage.getItem("budgets");
+  const [hasSearched, setHasSearched] = useState(false);
   let budgets: Budget[] = [];
 
   if (storedBudgets) {
@@ -13,15 +14,15 @@ export const HistoryGenerator = () => {
   }
 
   const handleFind = () => {
-    const results = budgets.filter((b) => b.clientName === name);
+    const results = budgets.filter((b) => b.clientName.toLocaleLowerCase().includes(name.toLocaleLowerCase()));
     setFoundBudgets(results);
+    setHasSearched(true);
   };
 
-
-  const allBudgets = ()=> {
-setFoundBudgets(budgets);
-
-  }
+  const allBudgets = () => {
+    setFoundBudgets(budgets);
+    setHasSearched(true);
+  };
 
   return (
     <div className="history-generator">
@@ -38,15 +39,20 @@ setFoundBudgets(budgets);
       <button onClick={allBudgets}>Find All Budgets</button>
 
       <div>
-        {foundBudgets.map((b, i) => (
-          <div key={i} className="budget-item">
-            <p>Name: {b.clientName}</p>
-            <p>Email: {b.clientEmail}</p>
-            <p>Date: {new Date(b.createdAt).toLocaleDateString("es-ES")}</p>
-            <p>Services: {b.service.join(",")}</p>
-            <p>Total: {b.total} €</p>
-          </div>
-        ))}
+        {foundBudgets.map((b) => (
+              <div key={b.id} className="budget-item">
+                <p>Name: {b.clientName}</p>
+                <p>Email: {b.clientEmail}</p>
+                <p>Date: {new Date(b.createdAt).toLocaleDateString("es-ES")}</p>
+                <p>Services: {b.service.join(",")}</p>
+                <p>Total: {b.total} €</p>
+              </div>
+            ))}
+            
+{hasSearched && foundBudgets.length === 0 && (
+  <p className="no-budgets">No budgets found with that name</p>
+)}
+
       </div>
     </div>
   );
