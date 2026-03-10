@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { ServiceBudget } from "./components/CardComponent/CardComponent";
 import { SERVICES } from "./config/services";
-import { BudgetGenerator } from "./components/budgetGeneratorComponent/budgetGeneratorComponent";
 import type { ServiceType } from "./types/typesBudget";
-import { HistoryGenerator } from "./components/budgetHistory/budgetHistoryComponent";
+import { AppRoutes } from "./AppRoutes";
+import { Link } from "react-router-dom";
 
 function App() {
   const [seoSelected, setSeoSelected] = useState(false);
@@ -13,17 +13,23 @@ function App() {
   const [pages, setPages] = useState(0);
   const [languages, setLanguages] = useState(0);
 
+  const selectedServices: ServiceType[] = [];
 
-const selectedServices: ServiceType[] = [];
-
-if(seoSelected) selectedServices.push("seo");
-if(adsSelected) selectedServices.push("ads");
-if(webSelected) selectedServices.push("web");
-
+  if (seoSelected) selectedServices.push("seo");
+  if (adsSelected) selectedServices.push("ads");
+  if (webSelected) selectedServices.push("web");
 
   return (
     <div>
       <h1>Budgets</h1>
+        <nav>
+        <Link to="/">Budgets</Link>
+        {" | "}
+        <Link to="/history">History</Link>
+      </nav>
+
+
+    
 
       <div className="cards-container">
         <ServiceBudget
@@ -53,24 +59,14 @@ if(webSelected) selectedServices.push("web");
           setLanguages={setLanguages}
         />
       </div>
-    <BudgetGenerator
-      selectedServices={selectedServices}
-      webConfig={{ pages,  languages}}
-    />
+       <AppRoutes
+        selectedServices={selectedServices}
+        webConfig={{ pages, languages }}
+      />
 
-<HistoryGenerator/>
-
-
-
-
+      {/* <HistoryGenerator /> */}
     </div>
-
-
-
   );
 }
 
 export default App;
-
-
-
