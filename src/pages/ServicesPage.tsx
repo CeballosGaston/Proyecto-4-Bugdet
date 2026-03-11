@@ -1,17 +1,25 @@
 import { ServiceBudget } from "../components/CardComponent/CardComponent";
 import { BudgetGenerator } from "../components/budgetGeneratorComponent/budgetGeneratorComponent";
 import { SERVICES } from "../config/services";
+import { useServicesBudget } from "../hooks/useServiceBudget";
 import type { ServiceType } from "../types/typesBudget";
 import "./servicesPage.css";
-import { useState } from "react";
+
 
 export const ServicesPage = () => {
-  const [seoSelected, setSeoSelected] = useState(false);
-  const [adsSelected, setAdsSelected] = useState(false);
-  const [webSelected, setWebSelected] = useState(false);
-
-  const [pages, setPages] = useState(0);
-  const [languages, setLanguages] = useState(0);
+ 
+   const {
+    seoSelected,
+    setSeoSelected,
+    adsSelected,
+    setAdsSelected,
+    webSelected,
+    setWebSelected,
+    pages,
+    setPages,
+    languages,
+    setLanguages
+  } = useServicesBudget();
 
   const selectedServices: ServiceType[] = [];
   if (seoSelected) selectedServices.push("seo");
