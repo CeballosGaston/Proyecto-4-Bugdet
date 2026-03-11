@@ -84,7 +84,7 @@ export const BudgetGenerator = ({
         placeholder="email"
       />
       <input
-        type="number"
+        type="text"
         value={phone}
         onChange={changePhone}
         placeholder="phone"

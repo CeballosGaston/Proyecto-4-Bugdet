@@ -1,52 +1,26 @@
-import React from "react";
 import { ServiceBudget } from "../components/CardComponent/CardComponent";
 import { BudgetGenerator } from "../components/budgetGeneratorComponent/budgetGeneratorComponent";
 import { SERVICES } from "../config/services";
 import type { ServiceType } from "../types/typesBudget";
 import "./servicesPage.css";
+import { useState } from "react";
 
+export const ServicesPage = () => {
+  const [seoSelected, setSeoSelected] = useState(false);
+  const [adsSelected, setAdsSelected] = useState(false);
+  const [webSelected, setWebSelected] = useState(false);
 
+  const [pages, setPages] = useState(0);
+  const [languages, setLanguages] = useState(0);
 
-
-
-type Props = {
-  seoSelected: boolean;
-  setSeoSelected: React.Dispatch<React.SetStateAction<boolean>>;
-  adsSelected: boolean;
-  setAdsSelected: React.Dispatch<React.SetStateAction<boolean>>;
-
-  webSelected: boolean;
-  setWebSelected: React.Dispatch<React.SetStateAction<boolean>>;
-
-  pages: number;
-  setPages: React.Dispatch<React.SetStateAction<number>>;
-
-  languages: number;
-  setLanguages: React.Dispatch<React.SetStateAction<number>>;
-};
-
-export const ServicesPage = ({
-  seoSelected,
-  setSeoSelected,
-  adsSelected,
-  setAdsSelected,
-  webSelected,
-  setWebSelected,
-  pages,
-  setPages,
-  languages,
-  setLanguages,
-}: Props) => {
-
-const selectedServices: ServiceType[] = [];
+  const selectedServices: ServiceType[] = [];
   if (seoSelected) selectedServices.push("seo");
   if (adsSelected) selectedServices.push("ads");
   if (webSelected) selectedServices.push("web");
 
-
   return (
     <div>
-      <h1  className="main-title">Choose your services</h1>
+      <h1 className="main-title">Choose your services</h1>
 
       <div className="cards-container">
         <ServiceBudget
@@ -77,14 +51,10 @@ const selectedServices: ServiceType[] = [];
         />
       </div>
 
-
-
-
-
-
-
-<BudgetGenerator selectedServices={selectedServices} webConfig={{pages, languages}}/>
-
+      <BudgetGenerator
+        selectedServices={selectedServices}
+        webConfig={{ pages, languages }}
+      />
     </div>
   );
 };
