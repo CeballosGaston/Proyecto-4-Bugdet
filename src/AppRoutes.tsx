@@ -1,19 +1,54 @@
 import { Routes, Route } from "react-router-dom";
-import { BudgetGenerator } from "./components/budgetGeneratorComponent/budgetGeneratorComponent";
+
 import { HistoryGenerator } from "./components/budgetHistory/budgetHistoryComponent";
-import type { ServiceType } from "./types/typesBudget";
+
+import { ServicesPage } from "./pages/ServicesPage";
 
 interface AppRoutesProps {
-  selectedServices: ServiceType[];
-  webConfig: { pages: number; languages: number };
+  
+  seoSelected: boolean;
+  setSeoSelected: React.Dispatch<React.SetStateAction<boolean>>;
+
+  adsSelected: boolean;
+  setAdsSelected: React.Dispatch<React.SetStateAction<boolean>>;
+
+  webSelected: boolean;
+  setWebSelected: React.Dispatch<React.SetStateAction<boolean>>;
+
+  pages: number;
+  setPages: React.Dispatch<React.SetStateAction<number>>;
+
+  languages: number;
+  setLanguages: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export const AppRoutes = ({ selectedServices, webConfig }: AppRoutesProps) => (
+export const AppRoutes = ({
+  seoSelected,
+  setSeoSelected,
+  adsSelected,
+  setAdsSelected,
+  webSelected,
+  setWebSelected,
+  pages,
+  setPages,
+  languages,
+  setLanguages,
+}: AppRoutesProps) => (
   <Routes>
-    <Route path="/" element={
-        <BudgetGenerator
-          selectedServices={selectedServices}
-          webConfig={webConfig}
+    <Route
+      path="/services"
+      element={
+        <ServicesPage
+          seoSelected={seoSelected}
+          setSeoSelected={setSeoSelected}
+          adsSelected={adsSelected}
+          setAdsSelected={setAdsSelected}
+          webSelected={webSelected}
+          setWebSelected={setWebSelected}
+          pages={pages}
+          setPages={setPages}
+          languages={languages}
+          setLanguages={setLanguages}
         />
       }
     />

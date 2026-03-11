@@ -89,6 +89,9 @@ export const BudgetGenerator = ({
         onChange={changePhone}
         placeholder="phone"
       />
+
+       
+
       <button onClick={handleSubmit}>Create Budget</button>
       <div className="budget-generator-text">
         {" "}
