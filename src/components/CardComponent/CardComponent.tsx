@@ -1,6 +1,7 @@
 import "./cardComponent.css";
 import { Add } from "../languageAndPagesComponent/addComponent";
 
+
 type Props = {
   name: string;
   description: string;

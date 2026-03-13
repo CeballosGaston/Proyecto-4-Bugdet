@@ -4,6 +4,7 @@ import { SERVICES } from "../config/services";
 import { useServicesBudget } from "../hooks/useServiceBudget";
 import type { ServiceType } from "../types/typesBudget";
 import "./servicesPage.css";
+import { calculateBudget } from "../services/budgetCalculator";
 
 
 export const ServicesPage = () => {
@@ -26,6 +27,8 @@ export const ServicesPage = () => {
   if (adsSelected) selectedServices.push("ads");
   if (webSelected) selectedServices.push("web");
 
+const total = calculateBudget(selectedServices, {pages, languages});
+
   return (
     <div>
       <h1 className="main-title">Choose your services</h1>
@@ -44,6 +47,7 @@ export const ServicesPage = () => {
           basePrice={SERVICES[1].basePrice}
           selected={adsSelected}
           onToggle={() => setAdsSelected(!adsSelected)}
+          
         />
 
         <ServiceBudget
@@ -58,11 +62,15 @@ export const ServicesPage = () => {
           setLanguages={setLanguages}
         />
       </div>
+      
+      <p className="main-total">Total: {total} €</p>
 
       <BudgetGenerator
         selectedServices={selectedServices}
         webConfig={{ pages, languages }}
       />
+
+      
     </div>
   );
 };
