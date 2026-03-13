@@ -6,10 +6,8 @@ import type { ServiceType } from "../types/typesBudget";
 import "./servicesPage.css";
 import { calculateBudget } from "../services/budgetCalculator";
 
-
 export const ServicesPage = () => {
- 
-   const {
+  const {
     seoSelected,
     setSeoSelected,
     adsSelected,
@@ -19,7 +17,7 @@ export const ServicesPage = () => {
     pages,
     setPages,
     languages,
-    setLanguages
+    setLanguages,
   } = useServicesBudget();
 
   const selectedServices: ServiceType[] = [];
@@ -27,7 +25,7 @@ export const ServicesPage = () => {
   if (adsSelected) selectedServices.push("ads");
   if (webSelected) selectedServices.push("web");
 
-const total = calculateBudget(selectedServices, {pages, languages});
+  const total = calculateBudget(selectedServices, { pages, languages });
 
   return (
     <div>
@@ -47,7 +45,6 @@ const total = calculateBudget(selectedServices, {pages, languages});
           basePrice={SERVICES[1].basePrice}
           selected={adsSelected}
           onToggle={() => setAdsSelected(!adsSelected)}
-          
         />
 
         <ServiceBudget
@@ -62,15 +59,15 @@ const total = calculateBudget(selectedServices, {pages, languages});
           setLanguages={setLanguages}
         />
       </div>
-      
-      <p className="main-total">Total: {total} €</p>
+
+      <div className="total-container">
+        <p className="main-total">Total: {total} €</p>
+      </div>
 
       <BudgetGenerator
         selectedServices={selectedServices}
         webConfig={{ pages, languages }}
       />
-
-      
     </div>
   );
 };

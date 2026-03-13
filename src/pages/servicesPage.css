@@ -23,11 +23,27 @@
   box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
 }
 
+.total-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
 .main-total {
-  color: #c81a1a;
-  font-size: 1.5rem;
-  line-height: 1.4;
-  margin-top: 2rem;
-  white-space: pre-line;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+  transition: transform 0.2s, box-shadow 0.2s;
   text-align: center;
+}
+
+/* Efecto hover o cuando cambia */
+.main-total:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
 }
