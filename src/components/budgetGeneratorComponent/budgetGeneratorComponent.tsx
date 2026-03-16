@@ -16,6 +16,7 @@ export const BudgetGenerator = ({
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [errorMessage, setErrorMessage] = useState<string[]>([]);
+  const [message, setMessage] =useState("");
  
 
   const changeName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,6 +49,7 @@ export const BudgetGenerator = ({
 
     if (errors.length === 0) {
       const totalNumber = calculateBudget(selectedServices, webConfig);
+      const messageBudget = `Budget created`;
      
       const newBudget: Budget = {
         id: crypto.randomUUID(),
@@ -66,6 +68,7 @@ export const BudgetGenerator = ({
       setEmail("");
       setName("");
       setPhone("");
+      setMessage(messageBudget);
     }
 
     setErrorMessage(errors);
@@ -96,6 +99,7 @@ export const BudgetGenerator = ({
       />
 
       <button onClick={handleSubmit}>Create Budget</button>
+      <div className="budget-generator-text">{message}</div>
       <div className="budget-generator-text">
         {" "}
         {errorMessage.map((m, index) => (
